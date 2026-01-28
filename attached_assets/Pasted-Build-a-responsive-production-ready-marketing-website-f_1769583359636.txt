@@ -1,0 +1,172 @@
+Build a responsive, production-ready marketing website for Keys2Home™ Pathway Program using React + Vite with Tailwind CSS.
+
+BRANDING & DESIGN
+
+Use a purple gradient theme based on provided Keys2Home™ logo and image assets
+
+Soft gradients, rounded cards, subtle shadows
+
+Friendly illustrated icons (home, checklist, guidance, counseling, etc.)
+
+Clean, modern sans-serif typography (Inter or similar)
+
+Visual tone should feel workforce-professional, supportive, and approachable (not luxury, not nonprofit)
+
+SITE STRUCTURE (ONLY 4 MAIN PAGES + CONTACT)
+1. Home
+
+Hero section with program overview
+
+Clear workforce-focused value proposition
+
+Short summary of what Keys2Home™ does
+
+Repeated call-to-action buttons throughout the page
+
+2. About the Program
+
+This page should combine:
+
+Program overview
+
+How the process works
+
+Include sections for:
+
+What the Keys2Home™ Pathway Program is
+
+Purpose of the program
+
+Explanation that it is a PAID homeownership readiness program
+
+Step-by-step “How the Process Works”:
+
+Quick Eligibility Check (QEC)
+
+Holistic review
+
+Possible invitation to pre-screening
+
+Orientation and structured guidance
+
+Avoid listing hard eligibility requirements such as income thresholds or credit scores.
+
+3. Who the Program Is For & What Participants Receive
+
+This page should combine:
+
+Who the program is designed to serve
+
+What participants receive
+
+Include sections for:
+
+Workforce households explanation (educators, healthcare, public servants, essential workers, etc.)
+
+Explanation that participants may earn too much for traditional affordable housing but not enough for current market prices
+
+Program Participation Expectations
+
+What Participants Receive:
+
+Personalized Homeownership Action Plan
+
+Lender guidance
+
+Credit repair support
+
+Housing counseling
+
+Designated Program Specialist
+
+Realtor guidance
+
+4. FAQ, Disclosures & Program Notice
+
+This page must include:
+
+Public-facing FAQ (NO pricing anywhere)
+
+Program transparency language
+
+Required disclosures
+
+Required acknowledgment language
+
+Required Disclosure Content (Must Appear Clearly):
+
+Completion of the Keys2Home™ Quick Eligibility Check:
+
+Does NOT guarantee program acceptance
+
+Does NOT guarantee mortgage approval or financing
+
+Does NOT guarantee selection for, or availability of, a Keys2Home™-developed home
+
+Credit is not impacted by completing the QEC
+
+Housing units are limited and availability depends on readiness, financing approval, and inventory
+
+All reviews are holistic
+
+Required Acknowledgment Text (Exact Meaning Must Be Preserved):
+
+“I understand that completing the Keys2Home™ Quick Eligibility Check does not guarantee program acceptance, financing, or selection for a Keys2Home™-developed home.”
+
+5. Contact
+
+Simple contact form (name, email, message)
+
+Informational only — no application submission
+
+Reinforce that applications are completed via the QEC
+
+CALLS TO ACTION (VERY IMPORTANT)
+
+NO dedicated Apply page
+
+All “Apply” or “Get Started” buttons must link directly to:
+
+👉 https://link.apisystem.tech/widget/form/NuDLvjpzzljLuHBYhm0A
+
+Buttons should say:
+
+“Start Your Quick Eligibility Check”
+
+“Begin the Eligibility Check”
+
+Links should open in a new tab
+
+CRITICAL COMPLIANCE RULES
+
+DO NOT display program pricing on any public-facing page
+
+DO NOT list income thresholds or credit score minimums
+
+DO NOT imply guaranteed housing or financing
+
+Use the full name Keys2Home™ Pathway Program on first reference, then Keys2Home™
+
+FOOTER REQUIREMENTS (ALL PAGES)
+
+Include the following language in the footer:
+
+“Keys2Home™ Pathway Program is a for-profit program. Participation does not guarantee housing placement or mortgage approval. Program services include education, professional guidance, and readiness support only.”
+
+“Keys2Home™ Pathway Program, also known as Keys2Home™, is a proprietary program and trademark of its owner. Unauthorized use, reproduction, or distribution is prohibited.”
+
+TECHNICAL REQUIREMENTS
+
+Mobile-first responsive design
+
+WCAG-friendly contrast and readability
+
+Clean React component structure
+
+Reusable CTA button component
+
+Navigation with 4 main pages + Contact
+
+Ready for deployment on Netlify or Vercel
+
+Use the provided content as the source of truth. Do not invent eligibility criteria, pricing, or guarantees.
