@@ -5,7 +5,7 @@ export function Footer() {
   return (
     <footer className="bg-slate-50 border-t mt-auto">
       <div className="container mx-auto px-4 py-12 md:px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12">
           <div className="md:col-span-1">
             <div className="flex items-center gap-2 mb-4">
               <img src={logo} alt="Keys2Home Logo" className="h-8 w-auto" />
@@ -17,19 +17,29 @@ export function Footer() {
           </div>
           
           <div className="md:col-span-1">
-            <h4 className="font-display font-semibold mb-4 text-foreground">Program</h4>
+            <h4 className="font-display font-semibold mb-4 text-foreground">About</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><Link href="/about"><span className="hover:text-primary cursor-pointer transition-colors">About</span></Link></li>
+              <li><Link href="/partners"><span className="hover:text-primary cursor-pointer transition-colors">Partners</span></Link></li>
               <li><Link href="/participants"><span className="hover:text-primary cursor-pointer transition-colors">Who It's For</span></Link></li>
               <li><Link href="/faq"><span className="hover:text-primary cursor-pointer transition-colors">FAQ</span></Link></li>
             </ul>
           </div>
 
           <div className="md:col-span-1">
-            <h4 className="font-display font-semibold mb-4 text-foreground">Support</h4>
+            <h4 className="font-display font-semibold mb-4 text-foreground">Resources</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><Link href="/contact"><span className="hover:text-primary cursor-pointer transition-colors">Contact Us</span></Link></li>
+              <li><Link href="/resources"><span className="hover:text-primary cursor-pointer transition-colors">Resources</span></Link></li>
+              <li><Link href="/resources/support"><span className="hover:text-primary cursor-pointer transition-colors">Support</span></Link></li>
+              <li><Link href="/events"><span className="hover:text-primary cursor-pointer transition-colors">Events</span></Link></li>
+            </ul>
+          </div>
+
+          <div className="md:col-span-1">
+            <h4 className="font-display font-semibold mb-4 text-foreground">Get Started</h4>
+            <ul className="space-y-2 text-sm text-muted-foreground">
               <li><a href="https://link.apisystem.tech/widget/form/NuDLvjpzzljLuHBYhm0A" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors">Eligibility Check</a></li>
+              <li><Link href="/contact"><span className="hover:text-primary cursor-pointer transition-colors">Contact Us</span></Link></li>
             </ul>
           </div>
 

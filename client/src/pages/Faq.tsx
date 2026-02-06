@@ -7,6 +7,7 @@ import {
 } from "@/components/ui/accordion";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Info } from "lucide-react";
+import { SEO, getFAQStructuredData } from "@/components/SEO";
 
 export default function Faq() {
   const faqs = [
@@ -40,8 +41,17 @@ export default function Faq() {
     }
   ];
 
+  const faqStructuredData = getFAQStructuredData(faqs);
+
   return (
     <div className="bg-background min-h-screen flex flex-col">
+      <SEO
+        title="FAQ - Keys2Home Homeownership Program Questions"
+        description="Get answers to frequently asked questions about Keys2Home. Learn about program eligibility, timeline, costs, and what to expect from our homeownership readiness program."
+        keywords="Keys2Home FAQ, homeownership program questions, mortgage readiness questions, first time homebuyer help, housing program answers"
+        url="/faq"
+        structuredData={faqStructuredData}
+      />
       <div className="container px-4 md:px-6 mx-auto py-16 md:py-24 max-w-4xl flex-grow">
         <h1 className="text-4xl md:text-5xl font-display font-bold text-center mb-4 text-slate-900">
           Frequently Asked Questions

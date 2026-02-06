@@ -1,5 +1,6 @@
 import { CtaSection } from "@/components/CtaSection";
 import { Badge } from "@/components/ui/badge";
+import { SEO, getOrganizationStructuredData } from "@/components/SEO";
 import { Briefcase, Heart, GraduationCap, Shield } from "lucide-react";
 
 export default function Participants() {
@@ -14,6 +15,13 @@ export default function Participants() {
 
   return (
     <div className="bg-background">
+      <SEO
+        title="Who It's For - Keys2Home Program for Essential Workers"
+        description="Keys2Home serves educators, healthcare workers, public service employees, and essential workers who are the backbone of our communities. Learn about program eligibility and benefits."
+        keywords="essential workers homeownership, teachers housing program, nurses home buying, public service worker housing, healthcare worker benefits, educator homeownership assistance"
+        url="/participants"
+        structuredData={getOrganizationStructuredData()}
+      />
       {/* Header */}
       <section className="bg-gradient-to-b from-purple-50 to-white py-20 border-b">
         <div className="container px-4 md:px-6 mx-auto text-center max-w-4xl">
@@ -79,14 +87,15 @@ export default function Participants() {
             <div className="w-full md:w-1/2">
                {/* Unsplash image: Person holding house keys, smiling, success */}
               {/* <!-- person holding house keys closeup --> */}
-              <img 
-                src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
-                alt="Keys to a new home" 
+              <img
+                src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                alt="Person holding house keys representing Keys2Home program benefits for essential workers"
                 className="rounded-2xl shadow-2xl border-4 border-white/10"
+                loading="lazy"
               />
             </div>
             <div className="w-full md:w-1/2">
-              <h2 className="text-3xl font-display font-bold mb-8">What Participants Receive</h2>
+              <h2 className="text-3xl font-display font-bold mb-8 text-white">What Participants Receive</h2>
               <div className="grid gap-4">
                 {benefits.map((benefit, i) => (
                   <div key={i} className="flex items-center gap-4 p-4 bg-white/5 rounded-xl backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-colors">

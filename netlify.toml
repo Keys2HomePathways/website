@@ -1,0 +1,33 @@
+[build]
+  # Build command to only build the client for static deployment
+  command = "npm run build:client"
+  # Output directory where the build files are located
+  publish = "dist/public"
+
+# SPA routing - redirect all routes to index.html for client-side routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Basic headers for security and performance
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Cache static assets
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Contact form handling with Netlify Forms (fallback)
+[[redirects]]
+  from = "/api/contact"
+  to = "/contact-success"
+  status = 302
+  force = false

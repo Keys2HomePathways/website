@@ -1,8 +1,7 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { insertContactInquirySchema } from "@shared/schema";
-import type { InsertContactInquiry } from "@shared/routes";
-import { useContact } from "@/hooks/use-contact";
+import { contactFormSchema, type ContactFormData } from "@/lib/contact-schema";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -16,12 +15,15 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, MessageSquare, User } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
+import { SEO, getOrganizationStructuredData } from "@/components/SEO";
 
 export default function Contact() {
-  const mutation = useContact();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
   
-  const form = useForm<InsertContactInquiry>({
-    resolver: zodResolver(insertContactInquirySchema),
+  const form = useForm<ContactFormData>({
+    resolver: zodResolver(contactFormSchema),
     defaultValues: {
       name: "",
       email: "",
@@ -29,16 +31,53 @@ export default function Contact() {
     },
   });
 
-  function onSubmit(data: InsertContactInquiry) {
-    mutation.mutate(data, {
-      onSuccess: () => {
+  async function onSubmit(data: ContactFormData) {
+    setIsSubmitting(true);
+    
+    try {
+      // Create form data for Web3Forms
+      const formData = new FormData();
+      formData.append("access_key", "adf11b5a-6256-4924-a1ee-e2de5b8b0cbb");
+      formData.append("name", data.name);
+      formData.append("email", data.email);
+      formData.append("message", data.message);
+
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        toast({
+          title: "Message Sent",
+          description: "Thank you for reaching out. We will get back to you soon.",
+        });
         form.reset();
-      },
-    });
+      } else {
+        throw new Error(result.message || 'Failed to send message');
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
     <div className="bg-slate-50 min-h-screen py-16 md:py-24">
+      <SEO
+        title="Contact Keys2Home - Get in Touch About Homeownership Program"
+        description="Have questions about the Keys2Home homeownership program? Contact us for more information about eligibility, timeline, and how we can help you achieve homeownership."
+        keywords="contact Keys2Home, homeownership program inquiry, housing assistance contact, mortgage readiness questions, home buying help"
+        url="/contact"
+        structuredData={getOrganizationStructuredData()}
+      />
       <div className="container px-4 md:px-6 mx-auto">
         <div className="max-w-2xl mx-auto">
           <div className="text-center mb-10">
@@ -113,9 +152,9 @@ export default function Contact() {
                   <Button 
                     type="submit" 
                     className="w-full h-12 text-lg font-semibold shadow-lg shadow-primary/25"
-                    disabled={mutation.isPending}
+                    disabled={isSubmitting}
                   >
-                    {mutation.isPending ? "Sending..." : "Send Message"}
+                    {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
                 </div>
                 
