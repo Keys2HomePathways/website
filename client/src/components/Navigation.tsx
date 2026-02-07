@@ -23,19 +23,22 @@ export function Navigation() {
     return () => window.removeEventListener('resize', checkDevice);
   }, []);
 
-  // Close dropdowns when clicking outside
+  // Close dropdowns when clicking outside (only for desktop)
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      const target = event.target as Element;
-      if (!target.closest('.dropdown-container')) {
-        setAboutDropdownOpen(false);
-        setResourcesDropdownOpen(false);
+      // Only apply click-outside logic on desktop
+      if (!isMobile) {
+        const target = event.target as Element;
+        if (!target.closest('.dropdown-container')) {
+          setAboutDropdownOpen(false);
+          setResourcesDropdownOpen(false);
+        }
       }
     };
 
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
+  }, [isMobile]);
 
   // Close mobile menu when route changes
   useEffect(() => {
@@ -241,11 +244,16 @@ export function Navigation() {
                         <div className="ml-4 mt-2 space-y-1">
                           {item.items!.map((subItem, subIndex) => (
                             <Link key={subIndex} href={subItem.href}>
-                              <div 
+                              <div
                                 className={`block px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
                                   isActive(subItem.href) ? "text-primary bg-purple-50" : "text-slate-600 hover:bg-gray-50"
                                 }`}
-                                onClick={() => setIsOpen(false)}
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  setAboutDropdownOpen(false);
+                                  setResourcesDropdownOpen(false);
+                                  setIsOpen(false);
+                                }}
                               >
                                 {subItem.label}
                               </div>
