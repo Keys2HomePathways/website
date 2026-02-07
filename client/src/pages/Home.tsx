@@ -16,7 +16,7 @@ export default function Home() {
       <SEO
         title="Keys2Home - A Clear Pathway to Homeownership Starts Here"
         description="Keys2Home replaces confusion with a structured, step-by-step pathway toward homeownership for hardworking people who have been told 'you don't qualify' without being shown what to do next."
-        keywords="homeownership pathway, first-time homebuyer, structured homeownership program, mortgage readiness, credit support, realtor assignment"
+        keywords="homeownership pathway, first-time homebuyer, structured homeownership program, mortgage readiness, credit support, realtor assignment, Stuart FL, Treasure Coast, South Florida, Martin County, St Lucie County, Port St Lucie, Fort Pierce, essential workers"
         url="/"
         structuredData={homeStructuredData}
       />
